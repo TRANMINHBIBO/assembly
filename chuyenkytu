@@ -1,0 +1,27 @@
+.model small
+.stack 100
+.data
+    tbao1 db 'nhap ky tu: $'
+    tbao2 db 13, 10, 'ky tu chuyen doi: '
+    kytu db ?, '$'
+.code
+    main proc
+        mov ax, @data
+        mov ds, ax
+        
+        lea dx, tbao1
+        mov ah, 9
+        int 21h
+        
+        mov ah, 1
+        int 21h
+        sub al, 20h
+        mov kytu, al
+        
+        lea dx, tbao2
+        mov ah, 9
+        int 21h
+        
+        main endp
+end
+          
